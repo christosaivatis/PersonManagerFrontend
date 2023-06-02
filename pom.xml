@@ -77,7 +77,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                none.mydomain.personmanager.frontend/none.mydomain.personmanager.frontend.Start
+                                none.mydomain.personmanager.frontend/none.mydomain.personmanager.frontend.StartApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

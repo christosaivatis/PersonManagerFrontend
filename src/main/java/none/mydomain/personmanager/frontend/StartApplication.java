@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 /**
  *
  */
-public class Start extends Application {
+public class StartApplication extends Application {
 
     /**
      * Initialisiert das Ganze und zeigt das Applikationsfenster an.
@@ -19,6 +19,7 @@ public class Start extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        stage.setTitle("Person Manager");
         stage.setScene(new Scene(new MainPanel(), 800, 600));
         stage.show();
     }
