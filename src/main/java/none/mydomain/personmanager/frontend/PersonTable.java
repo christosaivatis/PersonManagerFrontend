@@ -40,6 +40,7 @@ public class PersonTable extends TableView<Person> {
         TableColumn<Person, String> mobileNumber = new TableColumn<>("Mobile number");
         TableColumn<Person, String> email = new TableColumn<>("Email");
 
+        // Erstellung der Verbindung mit dem entspr. POJO.
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
