@@ -1,13 +1,11 @@
 package none.mydomain.personmanager.frontend;
 
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Region;
 
 import java.net.URL;
 
 /**
- * Das Hauptpanel, in dem sich alles befindet.
+ * Das Haupt-Panel, in dem sich alles befindet.
  *
  * @author Chris A.
  */
@@ -20,11 +18,12 @@ public class MainPanel extends BorderPane {
      */
     public MainPanel() {
 
-        this.setTop(new SearchPanel());
-        this.setBottom(new ControlPanel());
+        PersonTable personTable = new PersonTable();
+        this.setCenter(personTable);
+        this.setTop(new SelectPanel(personTable));
+        this.setBottom(new ControlPanel(personTable));
         this.setLeft(new Pillar());
         this.setRight(new Pillar());
-        this.setCenter(new PersonTable());
 
         this.setId("main-panel");
         this.embedCss();
@@ -32,8 +31,8 @@ public class MainPanel extends BorderPane {
 
     /**
      * Bindet die CSS-Datei ein.
-     * Vorsicht! Die Ordner-Struktur unter "resources" schrittweise erstellen,
-     * also NICHT direkt (wie z.B. "none.mydomain.personmanager.frontend")!
+     * (Vorsicht! Die Ordner-Struktur unter "resources" schrittweise erstellen,
+     * also NICHT direkt (wie z.B. "none.mydomain.personmanager.frontend")!)
      * @author Chris A.
      */
     private void embedCss() {

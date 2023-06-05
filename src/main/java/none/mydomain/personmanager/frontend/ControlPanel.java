@@ -17,7 +17,7 @@ public class ControlPanel extends ToolBar {
 	 *
 	 * @author Chris A.
 	 */
-	public ControlPanel() {
+	public ControlPanel(PersonTable personTable) {
 
 		this.setOrientation(Orientation.HORIZONTAL);
 		this.setPadding(new Insets(8, 20, 8, 20));
