@@ -63,6 +63,9 @@ public class PersonTable extends TableView<Person> {
     public void loadAll() {
 
         List<Person> allPersonsList = this.personHandler.getAll();
+
+
+
         for (Person p : allPersonsList) {
             this.getItems().add(p);
         }
@@ -78,6 +81,9 @@ public class PersonTable extends TableView<Person> {
     public void loadSome(String hql) {
 
         List<Person> somePersonsList = this.personHandler.getSome(hql);
+
+
+
         for (Person p : somePersonsList) {
             this.getItems().add(p);
         }
