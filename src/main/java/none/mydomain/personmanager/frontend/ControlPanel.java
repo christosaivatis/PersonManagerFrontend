@@ -6,12 +6,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 
 /**
- * Das Bedienfeld mit den entspr. Buttons.
+ * Das Bedienfeld mit den entsprechenden Buttons.
  *
  * @author Chris A.
  */
 public class ControlPanel extends ToolBar {
 
+	/**
+	 * Der Konstruktor.
+	 *
+	 * @author Chris A.
+	 */
 	public ControlPanel() {
 
 		this.setOrientation(Orientation.HORIZONTAL);

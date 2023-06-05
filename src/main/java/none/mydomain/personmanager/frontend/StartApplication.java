@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class StartApplication extends Application {
 
     /**
-     * Startet einfach das Ganze!
+     * Startet einfach das Ganze.
      *
      * @param args
      * @author Chris A.
