@@ -20,7 +20,6 @@ import org.controlsfx.control.CheckComboBox;
  */
 public class SelectPanel extends ToolBar {
 
-    private final Button loadAllButton;
     private final Button selectButton;
     private final TextField textField;
     private final CheckComboBox<String> sortChoice;
@@ -35,9 +34,7 @@ public class SelectPanel extends ToolBar {
         this.setOrientation(Orientation.HORIZONTAL);
         this.setPadding(new Insets(8, 20, 8, 20));
 
-        // LOAD ALL bzw. SELECT
-        this.loadAllButton = new Button("LOAD ALL");
-        Text separator = new Text(" / ");
+        // SELECT
         this.selectButton = new Button("SELECT");
         this.textField = new TextField("FROM Person WHERE ");
 
@@ -51,26 +48,11 @@ public class SelectPanel extends ToolBar {
         this.sortChoice = new CheckComboBox<>(strings);
 
         // addAll()
-        this.getItems().addAll(this.loadAllButton, separator,
-                this.selectButton, this.textField, sortLabel, sortChoice);
+        this.getItems().addAll(this.selectButton, this.textField, sortLabel, sortChoice);
         HBox.setHgrow(this.textField, Priority.ALWAYS);
 
-        this.addLoadAllButtonFunctionality(personTable);
         this.addSelectButtonFunctionality(personTable);
         this.addSortChoiceFunctionality();
-    }
-
-    /**
-     * Fügt die Funktionalität des "LOAD-ALL"-Buttons hinzu.
-     *
-     * @author Chris A.
-     */
-    private void addLoadAllButtonFunctionality(PersonTable personTable) {
-
-        this.loadAllButton.setOnAction(event -> {
-            System.out.println("LOAD ALL geklickt!");
-            personTable.loadAll();
-        });
     }
 
     /**
