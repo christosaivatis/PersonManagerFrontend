@@ -1,4 +1,4 @@
-package none.mydomain.personmanager.frontend;
+package none.mydomain.personmanager.frontend.simplebuildingblocks;
 
 import javafx.scene.layout.Region;
 

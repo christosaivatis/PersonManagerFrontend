@@ -64,7 +64,7 @@ public class PersonTable extends TableView<Person> {
 
         List<Person> allPersonsList = this.personHandler.getAll();
 
-
+        // add code to clear the table ...
 
         for (Person p : allPersonsList) {
             this.getItems().add(p);
@@ -82,7 +82,7 @@ public class PersonTable extends TableView<Person> {
 
         List<Person> somePersonsList = this.personHandler.getSome(hql);
 
-
+        // add code to clear the table ...
 
         for (Person p : somePersonsList) {
             this.getItems().add(p);

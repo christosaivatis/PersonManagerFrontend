@@ -1,6 +1,7 @@
 package none.mydomain.personmanager.frontend;
 
 import javafx.scene.layout.BorderPane;
+import none.mydomain.personmanager.frontend.simplebuildingblocks.Pillar;
 
 import java.net.URL;
 

@@ -5,6 +5,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.text.Text;
+import none.mydomain.personmanager.frontend.simplebuildingblocks.HorizontalPlaceholder;
 
 /**
  * Das Bedienfeld mit den entsprechenden Buttons.
