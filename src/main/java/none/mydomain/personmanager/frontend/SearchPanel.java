@@ -31,7 +31,7 @@ public class SearchPanel extends ToolBar {
         HorizontalPlaceholder hPlaceholder = new HorizontalPlaceholder();
         Button searchButton = new Button("SEARCH");
         TextField searchText = new TextField();
-        Text sortByLabel = new Text("sortByLabel");
+        Text sortLabel = new Text("SORT BY:");
 
         final ObservableList<String> strings = FXCollections.observableArrayList();
         for (int i = 0; i <= 100; i++) {
@@ -39,7 +39,7 @@ public class SearchPanel extends ToolBar {
         }
         CheckComboBox<String> checkComboBox = new CheckComboBox<>(strings);
 
-        this.getItems().addAll(hPlaceholder, searchButton, searchText, sortByLabel, checkComboBox);
+        this.getItems().addAll(hPlaceholder, searchButton, searchText, sortLabel, checkComboBox);
 
         searchButton.setOnAction(event -> {
             System.out.println("SEARCH geklickt!");

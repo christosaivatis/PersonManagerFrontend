@@ -38,7 +38,7 @@ public class MainPanel extends BorderPane {
      */
     private void embedCss() {
 
-        URL styleUrl = this.getClass().getResource("style.css");
+        URL styleUrl = this.getClass().getResource("styles.css");
         String styleUrlAsString = null;
         if (styleUrl != null) {
             styleUrlAsString = styleUrl.toExternalForm();

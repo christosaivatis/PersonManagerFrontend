@@ -1,10 +1,27 @@
 #main-panel {
-	/*	-fx-background-color: rgb(2, 65, 85);  */
-	-fx-base: rgb(0, 53, 96);
+	-fx-base: rgb(137, 174, 199);
+	-fx-background-color: rgb(137, 174, 199);
 }
 
+
+/*
 .text-area {
 	-fx-control-inner-background: rgb(0, 0, 0);
 	-fx-text-fill: rgb(0, 200, 200);
 	-fx-font: bold italic 12px "Courier New";
 }
+*/
+
+
+/*
+.button {
+	-fx-background-color: rgb(2, 65, 85);
+}
+*/
+
+
+/*
+.label {
+	-fx-text-fill: rgb(0, 200, 200);
+}
+*/

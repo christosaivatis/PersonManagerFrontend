@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class StartApplication extends Application {
 
     /**
-     * Startet einfach das Ganze.
+     * Startet einfach die Anwendung.
      *
      * @param args
      * @author Chris A.
@@ -23,7 +23,7 @@ public class StartApplication extends Application {
     }
 
     /**
-     * Initialisiert das Ganze und zeigt das Applikationsfenster an.
+     * Initialisiert die Anwendung und zeigt das Fenster an.
      *
      * @param stage
      * @throws Exception
