@@ -24,7 +24,7 @@ public class MainPanel extends BorderPane {
         PersonTable personTable = new PersonTable();
 
         this.setCenter(personTable);
-        this.setTop(new RoofPanel(personTable));
+        this.setTop(new RoofPanel(this, personTable));
         this.setBottom(new FloorPanel(personTable));
         this.setLeft(new Pillar());
         this.setRight(new Pillar());

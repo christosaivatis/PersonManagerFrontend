@@ -15,8 +15,8 @@ public class RoofPanel extends VBox {
      * @param personTable
      * @author Chris A.
      */
-    public RoofPanel(PersonTable personTable) {
+    public RoofPanel(MainPanel mainPanel, PersonTable personTable) {
 
-        this.getChildren().add(new TopMenuBar(personTable));
+        this.getChildren().add(new TopMenuBar(this, mainPanel, personTable));
     }
 }
