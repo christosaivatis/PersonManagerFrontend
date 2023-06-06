@@ -1,7 +1,5 @@
 package none.mydomain.personmanager.frontend;
 
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 import none.mydomain.personmanager.frontend.simplebuildingblocks.Pillar;
 
