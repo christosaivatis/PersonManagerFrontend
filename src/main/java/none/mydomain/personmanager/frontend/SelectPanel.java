@@ -65,7 +65,7 @@ public class SelectPanel extends ToolBar {
         this.selectButton.setOnAction(event -> {
             System.out.println("SELECT geklickt!");
             String hql = this.textField.getText();
-            personTable.loadSome(hql);
+            personTable.loadRecords(hql);
         });
     }
 

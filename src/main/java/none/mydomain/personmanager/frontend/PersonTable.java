@@ -56,34 +56,17 @@ public class PersonTable extends TableView<Person> {
     }
 
     /**
-     * Ladet in das Frontend alle Datensätze aus der Datenbank.
-     *
-     * @author Chris A.
-     */
-    public void loadAll() {
-
-        List<Person> allPersonsList = this.personHandler.getAll();
-
-        // add code to clear the table ...
-
-        for (Person p : allPersonsList) {
-            this.getItems().add(p);
-        }
-    }
-
-    /**
-     * Ladet in das Frontend nur die Datensätze aus der Datenbank,
+     * Ladet in das Frontend die Datensätze,
      * die den Kriterien im HQL-String entsprechen.
      * (HQL = "Hibernate Query Language")
      *
      * @author Chris A.
      */
-    public void loadSome(String hql) {
+    public void loadRecords(String hql) {
 
-        List<Person> somePersonsList = this.personHandler.getSome(hql);
+        // Die Tabelle muss zuerst geleert werden.
 
-        // add code to clear the table ...
-
+        List<Person> somePersonsList = this.personHandler.getDbRecords(hql);
         for (Person p : somePersonsList) {
             this.getItems().add(p);
         }

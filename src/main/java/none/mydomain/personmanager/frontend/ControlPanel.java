@@ -62,7 +62,8 @@ public class ControlPanel extends ToolBar {
 
 		this.loadAllButton.setOnAction(event -> {
 			System.out.println("LOAD ALL geklickt!");
-			personTable.loadAll();
+			String hql = "FROM Person";
+			personTable.loadRecords(hql);
 		});
 	}
 }
