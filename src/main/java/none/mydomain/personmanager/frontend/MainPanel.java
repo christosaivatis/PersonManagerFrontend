@@ -1,5 +1,7 @@
 package none.mydomain.personmanager.frontend;
 
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 import none.mydomain.personmanager.frontend.simplebuildingblocks.Pillar;
 
@@ -20,9 +22,10 @@ public class MainPanel extends BorderPane {
     public MainPanel() {
 
         PersonTable personTable = new PersonTable();
+
         this.setCenter(personTable);
-        this.setTop(new SelectPanel(personTable));
-        this.setBottom(new ControlPanel(personTable));
+        this.setTop(new RoofPanel(personTable));
+        this.setBottom(new FloorPanel(personTable));
         this.setLeft(new Pillar());
         this.setRight(new Pillar());
 

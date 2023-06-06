@@ -8,11 +8,11 @@ import javafx.scene.text.Text;
 import none.mydomain.personmanager.frontend.simplebuildingblocks.HorizontalPlaceholder;
 
 /**
- * Das Bedienfeld mit den entsprechenden Buttons.
+ * Das "Boden"-Panel, in dem sich die weiteren Funktionsbuttons befinden.
  *
  * @author Chris A.
  */
-public class ControlPanel extends ToolBar {
+public class FloorPanel extends ToolBar {
 
 	private final Button loadAllButton;
 
@@ -21,22 +21,21 @@ public class ControlPanel extends ToolBar {
 	 *
 	 * @author Chris A.
 	 */
-	public ControlPanel(PersonTable personTable) {
+	public FloorPanel(PersonTable personTable) {
 
 		this.setOrientation(Orientation.HORIZONTAL);
 		this.setPadding(new Insets(8, 20, 8, 20));
 
-		HorizontalPlaceholder hPlaceholder = new HorizontalPlaceholder();
 		this.loadAllButton = new Button("LOAD ALL");
-		Text separator1 = new Text(" / ");
 		Button updateButton = new Button("UPDATE");
-		Text separator2 = new Text(" / ");
 		Button deleteButton = new Button("DELETE");
-		Text separator3 = new Text(" / ");
 		Button addButton = new Button("ADD");
 
-		this.getItems().addAll(hPlaceholder, this.loadAllButton, separator1,
-				updateButton, separator2, deleteButton, separator3, addButton);
+		this.getItems().addAll(new HorizontalPlaceholder(),
+								this.loadAllButton,
+								new Text(" / "), updateButton,
+								new Text(" / "), deleteButton,
+								new Text(" / "), addButton);
 
 		this.addLoadAllButtonFunctionality(personTable);
 

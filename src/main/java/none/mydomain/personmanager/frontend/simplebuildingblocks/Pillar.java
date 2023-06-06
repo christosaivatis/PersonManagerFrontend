@@ -3,7 +3,7 @@ package none.mydomain.personmanager.frontend.simplebuildingblocks;
 import javafx.scene.layout.Region;
 
 /**
- * Einfach eine Säule.
+ * Einfach eine "Säule".
  *
  * @author Chris A.
  */
