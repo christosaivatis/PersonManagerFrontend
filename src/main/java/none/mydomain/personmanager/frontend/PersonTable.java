@@ -56,7 +56,7 @@ public class PersonTable extends TableView<Person> {
     }
 
     /**
-     * Ladet in das Frontend die Datensätze,
+     * Leert zuerst die Tabelle und ladet danach die Datensätze,
      * die den Kriterien im HQL-String entsprechen.
      * (HQL = "Hibernate Query Language")
      *
@@ -64,7 +64,7 @@ public class PersonTable extends TableView<Person> {
      */
     public void loadRecords(String hql) {
 
-        // Die Tabelle muss zuerst geleert werden.
+        this.getItems().clear();
 
         List<Person> somePersonsList = this.personHandler.getDbRecords(hql);
         for (Person p : somePersonsList) {
