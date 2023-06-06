@@ -46,12 +46,6 @@
             <artifactId>javafx-fxml</artifactId>
             <version>19.0.2.1</version>
         </dependency>
-        <!--    Extra Bibliothek für CheckComboBox.    -->
-        <dependency>
-            <groupId>org.controlsfx</groupId>
-            <artifactId>controlsfx</artifactId>
-            <version>11.1.2</version>
-        </dependency>
 
         <!--    PersonManagerBackend.    -->
         <dependency>

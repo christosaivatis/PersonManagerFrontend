@@ -1,8 +1,5 @@
 package none.mydomain.personmanager.frontend;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
@@ -10,11 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.text.Text;
-import org.controlsfx.control.CheckComboBox;
 
 /**
- * Das Panel mit den verschiedenen Auswahlmöglichkeiten zum Anzeigen der Datensätze.
+ * Das Panel für die Erstellung des SQL- (bzw. HQL-) SELECT-Befehls.
+ * (HQL = "Hibernate Query Language")
  *
  * @author Chris A.
  */
@@ -22,7 +18,6 @@ public class SelectPanel extends ToolBar {
 
     private final Button selectButton;
     private final TextField textField;
-    private final CheckComboBox<String> sortChoice;
 
     /**
      * Der Konstruktor.
@@ -34,25 +29,13 @@ public class SelectPanel extends ToolBar {
         this.setOrientation(Orientation.HORIZONTAL);
         this.setPadding(new Insets(8, 20, 8, 20));
 
-        // SELECT
         this.selectButton = new Button("SELECT");
         this.textField = new TextField("FROM Person WHERE ");
 
-        // ORDER BY
-        Text sortLabel = new Text("ORDER BY ");
-
-        final ObservableList<String> strings = FXCollections.observableArrayList();
-        for (int i = 0; i <= 100; i++) {
-            strings.add("Item " + i);
-        }
-        this.sortChoice = new CheckComboBox<>(strings);
-
-        // addAll()
-        this.getItems().addAll(this.selectButton, this.textField, sortLabel, sortChoice);
+        this.getItems().addAll(this.selectButton, this.textField);
         HBox.setHgrow(this.textField, Priority.ALWAYS);
 
         this.addSelectButtonFunctionality(personTable);
-        this.addSortChoiceFunctionality();
     }
 
     /**
@@ -66,23 +49,6 @@ public class SelectPanel extends ToolBar {
             System.out.println("SELECT geklickt!");
             String hql = this.textField.getText();
             personTable.loadRecords(hql);
-        });
-    }
-
-    /**
-     * Fügt die Funktionalität des Auswahl-Boxes hinzu.
-     *
-     * @author Chris A.
-     */
-    private void addSortChoiceFunctionality() {
-
-        this.sortChoice.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
-            public void onChanged(ListChangeListener.Change<? extends String> c) {
-                while(c.next()) {
-                    //do something with changes here
-                }
-                System.out.println(sortChoice.getCheckModel().getCheckedItems());
-            }
         });
     }
 }
