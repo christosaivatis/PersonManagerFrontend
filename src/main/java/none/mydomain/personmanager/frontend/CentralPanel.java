@@ -13,7 +13,7 @@ import javafx.scene.control.SplitPane;
 public class CentralPanel extends SplitPane {
 
     private PersonTable personTable;
-    private SearchPanel searchPanel;
+    private SearchForm searchForm;
 
     /**
      * Der Konstruktor.
@@ -24,7 +24,7 @@ public class CentralPanel extends SplitPane {
     public CentralPanel(MainPanel mainPanel) {
 
         this.personTable = new PersonTable();
-        this.searchPanel = new SearchPanel(mainPanel, 200.0d, 330.0d);
+        this.searchForm = new SearchForm(mainPanel, 200.0d, 330.0d);
 
         this.setOrientation(Orientation.HORIZONTAL);
 
@@ -41,7 +41,7 @@ public class CentralPanel extends SplitPane {
         return this.personTable;
     }
 
-    public SearchPanel getSearchPanel() {
-        return this.searchPanel;
+    public SearchForm getSearchForm() {
+        return this.searchForm;
     }
 }

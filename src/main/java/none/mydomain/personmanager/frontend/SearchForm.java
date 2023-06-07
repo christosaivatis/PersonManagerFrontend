@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
  *
  * @author Chris A.
  */
-public class SearchPanel extends GridPane {
+public class SearchForm extends GridPane {
 
     /**
      * Der Konstruktor.
@@ -20,7 +20,7 @@ public class SearchPanel extends GridPane {
      * @param maxWidth Die erwünschte maximale Breite.
      * @author Chris A.
      */
-    public SearchPanel(MainPanel mainPanel, double minWidth, double maxWidth) {
+    public SearchForm(MainPanel mainPanel, double minWidth, double maxWidth) {
 
         this.setMinWidth(minWidth);
         this.setMaxWidth(maxWidth);
