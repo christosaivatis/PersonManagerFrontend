@@ -1,51 +1,34 @@
 package none.mydomain.personmanager.frontend;
 
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
-import none.mydomain.personmanager.frontend.simplebuildingblocks.Pillar;
 
+/**
+ * Die obere Menüleiste mit den verschiedenen Menüs (zuerst nur das Suchmenü).
+ *
+ * @author Chris A.
+ */
 public class TopMenuBar extends MenuBar {
 
-    private Menu menu;
+    private SearchMenu searchMenu;
 
-    private CheckMenuItem amateur;
-    private CheckMenuItem professional;
+    /**
+     * Der Konstruktor.
+     *
+     * @param mainPanel Das Haupt-Panel.
+     * @author Chris A.
+     */
+    public TopMenuBar(MainPanel mainPanel) {
 
-    private SelectPanel selectPanel;
-    private SearchPanel searchPanel;
+        this.searchMenu = new SearchMenu(mainPanel);
 
-    public TopMenuBar(RoofPanel roofPanel, MainPanel mainPanel, PersonTable personTable) {
+        this.getMenus().add(this.searchMenu);
+    }
 
-        this.menu = new Menu("Search");
-        this.getMenus().add(this.menu);
+    /*********************
+            Getter
+     *********************/
 
-        this.amateur = new CheckMenuItem("For Amateurs - Extended Live Search!");
-        this.professional = new CheckMenuItem("For Professionals - SQL/HQL");
-        this.menu.getItems().addAll(this.amateur, this.professional);
-
-        this.selectPanel = new SelectPanel(personTable);
-
-        this.searchPanel = new SearchPanel(personTable, 200.0d, 330.0d);
-
-        this.amateur.setOnAction(actionEvent -> {
-            if (this.amateur.isSelected()) {
-                mainPanel.setRight(null);
-                mainPanel.getCentralPanel().getItems().add(this.searchPanel);
-            }
-            else {
-                mainPanel.setRight(new Pillar());
-                mainPanel.getCentralPanel().getItems().remove(this.searchPanel);
-            }
-        });
-
-        this.professional.setOnAction(actionEvent -> {
-            if (this.professional.isSelected()) {
-                roofPanel.getChildren().add(this.selectPanel);
-            }
-            else {
-                roofPanel.getChildren().remove(this.selectPanel);
-            }
-        });
+    public SearchMenu getSearchMenu() {
+        return this.searchMenu;
     }
 }

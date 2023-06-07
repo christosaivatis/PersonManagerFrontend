@@ -5,9 +5,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Das Panel für die erweiterte live Suche.
+ *
+ * @author Chris A.
+ */
 public class SearchPanel extends GridPane {
 
-    public SearchPanel(PersonTable personTable, double minWidth, double maxWidth) {
+    /**
+     * Der Konstruktor.
+     *
+     * @param mainPanel Das Haupt-Panel.
+     * @param minWidth Die erwünschte minimale Breite.
+     * @param maxWidth Die erwünschte maximale Breite.
+     * @author Chris A.
+     */
+    public SearchPanel(MainPanel mainPanel, double minWidth, double maxWidth) {
 
         this.setMinWidth(minWidth);
         this.setMaxWidth(maxWidth);

@@ -9,9 +9,9 @@ import none.mydomain.personmanager.backend.PersonHandler;
 import java.util.List;
 
 /**
+ * Die Personen-Tabelle.
  *
- *
- *
+ * @author Chris A.
  */
 public class PersonTable extends TableView<Person> {
 
@@ -20,9 +20,11 @@ public class PersonTable extends TableView<Person> {
     /**
      * Der Konstruktor.
      *
-     *
+     * @author Chris A.
      */
     public PersonTable() {
+
+        this.personHandler = new PersonHandler();
 
         TableColumn<Person, Integer> id = new TableColumn<>("Id");
         TableColumn<Person, String> title = new TableColumn<>("Title");
@@ -51,8 +53,16 @@ public class PersonTable extends TableView<Person> {
         city.setCellValueFactory(new PropertyValueFactory<>("city"));
         mobileNumber.setCellValueFactory(new PropertyValueFactory<>("mobileNumber"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
+    }
 
-        this.personHandler = new PersonHandler();
+    /**
+     * Getter für das <code>PersonHandler</code>-Objekt (Backend).
+     *
+     * @return Das <code>PersonHandler</code>-Objekt.
+     * @author Chris A.
+     */
+    public PersonHandler getPersonHandler() {
+        return this.personHandler;
     }
 
     /**

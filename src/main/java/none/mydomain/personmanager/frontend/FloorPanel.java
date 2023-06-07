@@ -19,9 +19,10 @@ public class FloorPanel extends ToolBar {
 	/**
 	 * Der Konstruktor.
 	 *
+	 * @param mainPanel Das Haupt-Panel.
 	 * @author Chris A.
 	 */
-	public FloorPanel(PersonTable personTable) {
+	public FloorPanel(MainPanel mainPanel) {
 
 		this.setOrientation(Orientation.HORIZONTAL);
 		this.setPadding(new Insets(8, 20, 8, 20));
@@ -37,7 +38,7 @@ public class FloorPanel extends ToolBar {
 								new Text(" / "), deleteButton,
 								new Text(" / "), addButton);
 
-		this.addLoadAllButtonFunctionality(personTable);
+		this.addLoadAllButtonFunctionality(mainPanel);
 
 		updateButton.setOnAction(event -> {
 			System.out.println("UPDATE geklickt!");
@@ -57,12 +58,12 @@ public class FloorPanel extends ToolBar {
 	 *
 	 * @author Chris A.
 	 */
-	private void addLoadAllButtonFunctionality(PersonTable personTable) {
+	private void addLoadAllButtonFunctionality(MainPanel mainPanel) {
 
 		this.loadAllButton.setOnAction(event -> {
 			System.out.println("LOAD ALL geklickt!");
 			String hql = "FROM Person";
-			personTable.loadRecords(hql);
+			mainPanel.getCentralPanel().getPersonTable().loadRecords(hql);
 		});
 	}
 }

@@ -4,19 +4,44 @@ import javafx.geometry.Orientation;
 import javafx.scene.control.SplitPane;
 
 /**
+ * Das zentrale Panel, in dem sich die Personentabelle und das Such-Panel befinden.
+ * Erhält eine geteilte Ansicht (JavaFX-<code>SplitPane</code>),
+ * bei Erscheinung von beiden Komponenten.
  *
+ * @author Chris A.
  */
 public class CentralPanel extends SplitPane {
+
+    private PersonTable personTable;
+    private SearchPanel searchPanel;
 
     /**
      * Der Konstruktor.
      *
+     * @param mainPanel Das Haupt-Panel.
      * @author Chris A.
      */
-    public CentralPanel(PersonTable personTable) {
+    public CentralPanel(MainPanel mainPanel) {
+
+        this.personTable = new PersonTable();
+        this.searchPanel = new SearchPanel(mainPanel, 200.0d, 330.0d);
 
         this.setOrientation(Orientation.HORIZONTAL);
 
-        this.getItems().add(personTable);
+        // Bei der Initialisierung der Anwendung
+        // wird nur die Personen-Tabelle hinzugefügt.
+        this.getItems().add(this.personTable);
+    }
+
+    /*********************
+            Getter
+     *********************/
+
+    public PersonTable getPersonTable() {
+        return this.personTable;
+    }
+
+    public SearchPanel getSearchPanel() {
+        return this.searchPanel;
     }
 }

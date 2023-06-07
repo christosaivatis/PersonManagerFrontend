@@ -1,7 +1,5 @@
 package none.mydomain.personmanager.frontend;
 
-import javafx.geometry.Orientation;
-import javafx.scene.control.SplitPane;
 import javafx.scene.layout.BorderPane;
 import none.mydomain.personmanager.frontend.simplebuildingblocks.Pillar;
 
@@ -14,10 +12,8 @@ import java.net.URL;
  */
 public class MainPanel extends BorderPane {
 
-    private PersonTable personTable;
-
-    private CentralPanel centralPanel;
     private RoofPanel roofPanel;
+    private CentralPanel centralPanel;
     private FloorPanel floorPanel;
     private Pillar leftPillar;
     private Pillar rightPillar;
@@ -29,16 +25,16 @@ public class MainPanel extends BorderPane {
      */
     public MainPanel() {
 
-        this.personTable = new PersonTable();
-
-        this.centralPanel = new CentralPanel(personTable);
-        this.roofPanel = new RoofPanel(this, this.personTable);
-        this.floorPanel = new FloorPanel(this.personTable);
+        // Durch das Haupt-Panel erfolgt die Kommunikation zwischen den Panels,
+        // deswegen wir es von den drei anderen Panels als Argument erwartet.
+        this.roofPanel = new RoofPanel(this);
+        this.centralPanel = new CentralPanel(this);
+        this.floorPanel = new FloorPanel(this);
         this.leftPillar = new Pillar();
         this.rightPillar = new Pillar();
 
-        this.setCenter(this.centralPanel);
         this.setTop(this.roofPanel);
+        this.setCenter(this.centralPanel);
         this.setBottom(this.floorPanel);
         this.setLeft(this.leftPillar);
         this.setRight(this.rightPillar);
@@ -47,14 +43,28 @@ public class MainPanel extends BorderPane {
         this.embedCss();
     }
 
-    /**
-     * Getter für splitPane.
-     *
-     * @return
-     * @author Chris A.
-     */
+    /*********************
+            Getter
+     *********************/
+
+    public RoofPanel getRoofPanel() {
+        return this.roofPanel;
+    }
+
     public CentralPanel getCentralPanel() {
         return this.centralPanel;
+    }
+
+    public FloorPanel getFloorPanel() {
+        return this.floorPanel;
+    }
+
+    public Pillar getLeftPillar() {
+        return this.leftPillar;
+    }
+
+    public Pillar getRightPillar() {
+        return this.rightPillar;
     }
 
     /**
