@@ -14,7 +14,13 @@ import java.net.URL;
  */
 public class MainPanel extends BorderPane {
 
-    private SplitPane splitPane;
+    private PersonTable personTable;
+
+    private CentralPanel centralPanel;
+    private RoofPanel roofPanel;
+    private FloorPanel floorPanel;
+    private Pillar leftPillar;
+    private Pillar rightPillar;
 
     /**
      * Der Konstruktor.
@@ -23,15 +29,19 @@ public class MainPanel extends BorderPane {
      */
     public MainPanel() {
 
-        PersonTable personTable = new PersonTable();
-        this.splitPane = new SplitPane();
-        this.splitPane.setOrientation(Orientation.HORIZONTAL);
-        this.splitPane.getItems().add(personTable);
-        this.setCenter(splitPane);
-        this.setTop(new RoofPanel(this, personTable));
-        this.setBottom(new FloorPanel(personTable));
-        this.setLeft(new Pillar());
-        this.setRight(new Pillar());
+        this.personTable = new PersonTable();
+
+        this.centralPanel = new CentralPanel(personTable);
+        this.roofPanel = new RoofPanel(this, this.personTable);
+        this.floorPanel = new FloorPanel(this.personTable);
+        this.leftPillar = new Pillar();
+        this.rightPillar = new Pillar();
+
+        this.setCenter(this.centralPanel);
+        this.setTop(this.roofPanel);
+        this.setBottom(this.floorPanel);
+        this.setLeft(this.leftPillar);
+        this.setRight(this.rightPillar);
 
         this.setId("main-panel");
         this.embedCss();
@@ -43,8 +53,8 @@ public class MainPanel extends BorderPane {
      * @return
      * @author Chris A.
      */
-    public SplitPane getSplitPane() {
-        return this.splitPane;
+    public CentralPanel getCentralPanel() {
+        return this.centralPanel;
     }
 
     /**

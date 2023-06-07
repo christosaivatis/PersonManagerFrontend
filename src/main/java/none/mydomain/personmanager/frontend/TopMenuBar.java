@@ -31,11 +31,11 @@ public class TopMenuBar extends MenuBar {
         this.amateur.setOnAction(actionEvent -> {
             if (this.amateur.isSelected()) {
                 mainPanel.setRight(null);
-                mainPanel.getSplitPane().getItems().add(this.searchPanel);
+                mainPanel.getCentralPanel().getItems().add(this.searchPanel);
             }
             else {
                 mainPanel.setRight(new Pillar());
-                mainPanel.getSplitPane().getItems().remove(this.searchPanel);
+                mainPanel.getCentralPanel().getItems().remove(this.searchPanel);
             }
         });
 
