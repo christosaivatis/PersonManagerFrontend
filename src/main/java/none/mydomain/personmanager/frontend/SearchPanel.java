@@ -7,7 +7,10 @@ import javafx.scene.layout.GridPane;
 
 public class SearchPanel extends GridPane {
 
-    public SearchPanel(PersonTable personTable) {
+    public SearchPanel(PersonTable personTable, double minWidth, double maxWidth) {
+
+        this.setMinWidth(minWidth);
+        this.setMaxWidth(maxWidth);
 
         this.setPadding(new Insets(50.0d, 20.0d, 10.0d, 20.0d));
 

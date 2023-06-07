@@ -1,5 +1,7 @@
 package none.mydomain.personmanager.frontend;
 
+import javafx.geometry.Orientation;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.BorderPane;
 import none.mydomain.personmanager.frontend.simplebuildingblocks.Pillar;
 
@@ -12,6 +14,8 @@ import java.net.URL;
  */
 public class MainPanel extends BorderPane {
 
+    private SplitPane splitPane;
+
     /**
      * Der Konstruktor.
      *
@@ -20,7 +24,10 @@ public class MainPanel extends BorderPane {
     public MainPanel() {
 
         PersonTable personTable = new PersonTable();
-        this.setCenter(personTable);
+        this.splitPane = new SplitPane();
+        this.splitPane.setOrientation(Orientation.HORIZONTAL);
+        this.splitPane.getItems().add(personTable);
+        this.setCenter(splitPane);
         this.setTop(new RoofPanel(this, personTable));
         this.setBottom(new FloorPanel(personTable));
         this.setLeft(new Pillar());
@@ -28,6 +35,16 @@ public class MainPanel extends BorderPane {
 
         this.setId("main-panel");
         this.embedCss();
+    }
+
+    /**
+     * Getter für splitPane.
+     *
+     * @return
+     * @author Chris A.
+     */
+    public SplitPane getSplitPane() {
+        return this.splitPane;
     }
 
     /**

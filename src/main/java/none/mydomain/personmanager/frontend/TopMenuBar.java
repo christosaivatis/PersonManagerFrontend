@@ -25,14 +25,17 @@ public class TopMenuBar extends MenuBar {
         this.menu.getItems().addAll(this.amateur, this.professional);
 
         this.selectPanel = new SelectPanel(personTable);
-        this.searchPanel = new SearchPanel(personTable);
+
+        this.searchPanel = new SearchPanel(personTable, 200.0d, 330.0d);
 
         this.amateur.setOnAction(actionEvent -> {
             if (this.amateur.isSelected()) {
-                mainPanel.setRight(this.searchPanel);
+                mainPanel.setRight(null);
+                mainPanel.getSplitPane().getItems().add(this.searchPanel);
             }
             else {
                 mainPanel.setRight(new Pillar());
+                mainPanel.getSplitPane().getItems().remove(this.searchPanel);
             }
         });
 
