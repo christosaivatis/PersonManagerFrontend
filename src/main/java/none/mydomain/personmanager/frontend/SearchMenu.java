@@ -55,12 +55,12 @@ public class SearchMenu extends Menu {
             if (this.amateur.isSelected()) {
                 mainPanel.setRight(null);
                 mainPanel.getCentralPanel().getItems().add(
-                        mainPanel.getCentralPanel().getSearchPanel());
+                        mainPanel.getCentralPanel().getSearchForm());
             }
             else {
                 mainPanel.setRight(mainPanel.getRightPillar());
                 mainPanel.getCentralPanel().getItems().remove(
-                        mainPanel.getCentralPanel().getSearchPanel());
+                        mainPanel.getCentralPanel().getSearchForm());
             }
         });
     }
