@@ -33,6 +33,8 @@ public class SelectPanel extends ToolBar {
         this.textField = new TextField("FROM Person WHERE ");
 
         this.getItems().addAll(this.selectButton, this.textField);
+
+        // Damit das Textfeld immer die größtmögliche Breite hat.
         HBox.setHgrow(this.textField, Priority.ALWAYS);
 
         this.addSelectButtonFunctionality(personTable);
