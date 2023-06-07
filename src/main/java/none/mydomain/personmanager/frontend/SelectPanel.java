@@ -3,6 +3,7 @@ package none.mydomain.personmanager.frontend;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.HBox;
@@ -29,10 +30,12 @@ public class SelectPanel extends ToolBar {
         this.setOrientation(Orientation.HORIZONTAL);
         this.setPadding(new Insets(8, 20, 8, 20));
 
+        Label label = new Label("SQL/HQL: ");
+        label.setId("my-labels");
         this.selectButton = new Button("SELECT");
         this.textField = new TextField("FROM Person WHERE ");
 
-        this.getItems().addAll(this.selectButton, this.textField);
+        this.getItems().addAll(label, this.selectButton, this.textField);
 
         // Damit das Textfeld immer die größtmögliche Breite hat.
         HBox.setHgrow(this.textField, Priority.ALWAYS);

@@ -4,6 +4,11 @@
 }
 
 
+#my-labels {
+	-fx-font-weight: bold;
+}
+
+
 /*
 .text-area {
 	-fx-control-inner-background: rgb(0, 0, 0);
@@ -16,12 +21,5 @@
 /*
 .button {
 	-fx-background-color: rgb(2, 65, 85);
-}
-*/
-
-
-/*
-.label {
-	-fx-text-fill: rgb(0, 200, 200);
 }
 */
