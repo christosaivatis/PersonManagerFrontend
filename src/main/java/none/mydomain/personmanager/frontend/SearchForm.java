@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -14,6 +13,61 @@ import java.util.HashMap;
  * @author Chris A.
  */
 public class SearchForm extends GridPane {
+
+    /**
+     * Dient zum Speichern und Zugreifen
+     * auf die folgenden zwei Werte für jede Personen-Eigenschaft:
+     * <ul>
+     *     <li>Der entsprechende Spaltenname im Backend (Datenbanktabelle)</li>
+     *     <li>Der entsprechende Label-Text im Frontend (JavaFX-Oberfläche)</li>
+     * </ul>
+     *
+     * @author Chris A.
+     */
+    private enum PersonEnum {
+
+        ID              ("id",              "Id: "),
+        TITLE           ("title",           "Title: "),
+        FIRSTNAME       ("firstName",       "First name: "),
+        LASTNAME        ("lastName",        "Last name: "),
+        DATEOFBIRTH     ("dateOfBirth",     "Date of birth: "),
+        STREET          ("street",          "Street: "),
+        HOUSENUMBER     ("houseNumber",     "House number: "),
+        ZIPCODE         ("zipCode",         "Zip code: "),
+        CITY            ("city",            "City: "),
+        MOBILENUMBER    ("mobileNumber",    "Mobile number: "),
+        EMAIL           ("email",           "Email: ");
+
+        private String propertyName;
+        private String labelValue;
+
+        /**
+         * Der Konstruktor.
+         *
+         * @param dbTableColName Der entsprechende Spaltenname im Backend (Datenbanktabelle).
+         * @param labelText Der entsprechende Label-Text im Frontend (JavaFX-Oberfläche).
+         * @author Chris A.
+         */
+        private PersonEnum(String dbTableColName, String labelText) {
+
+            this.propertyName = dbTableColName;
+            this.labelValue = labelText;
+        }
+
+        /**************************************
+         *          Getter-Methoden.          *
+         **************************************/
+
+        public String getPropertyName() {
+
+            return this.propertyName;
+        }
+
+        public String getLabelValue() {
+
+            return this.labelValue;
+        }
+    }
 
     /**
      * Der Konstruktor.
@@ -30,126 +84,52 @@ public class SearchForm extends GridPane {
 
         this.setPadding(new Insets(50.0d, 20.0d, 10.0d, 20.0d));
 
-        // Der Überschrift für das Such-Formular.
+        // Die Überschrift für das Such-Formular.
         Label headline = new Label("Extended Live Search!");
         this.add(headline, 1, 0);
         headline.setId("my-labels");
 
-        // Nur ein Platzhalter, deswegen beides mit leerem Label.
+        // Nur ein Platzhalter, deswegen zwei leere Labels.
         this.add(new Label(), 1, 1);
         this.add(new Label(), 2, 1);
 
-        // Klassische Variante.
-//        TextField titleTextField = new TextField();
-//        titleTextField.setOnKeyTyped(event -> {
-//            System.out.println(titleTextField.getText());
-//        });
-//        this.add(new Label("Title: "), 1, 2);
-//        this.add(titleTextField, 2, 2);
-//
-//        TextField fNameTextField = new TextField();
-//        fNameTextField.setOnKeyTyped(event -> {
-//            System.out.println(fNameTextField.getText());
-//        });
-//        this.add(new Label("First name: "), 1, 3);
-//        this.add(fNameTextField, 2, 3);
-//
-//        TextField lNameTextField = new TextField();
-//        lNameTextField.setOnKeyTyped(event -> {
-//            System.out.println(lNameTextField.getText());
-//        });
-//        this.add(new Label("Last name: "), 1, 4);
-//        this.add(lNameTextField, 2, 4);
-//
-//        TextField dobTextField = new TextField();
-//        dobTextField.setOnKeyTyped(event -> {
-//            System.out.println(dobTextField.getText());
-//        });
-//        this.add(new Label("Date of birth: "), 1, 5);
-//        this.add(dobTextField, 2, 5);
-//
-//        TextField streetTextField = new TextField();
-//        streetTextField.setOnKeyTyped(event -> {
-//            System.out.println(streetTextField.getText());
-//        });
-//        this.add(new Label("Street: "), 1, 6);
-//        this.add(streetTextField, 2, 6);
-//
-//        TextField houseNoTextField = new TextField();
-//        houseNoTextField.setOnKeyTyped(event -> {
-//            System.out.println(houseNoTextField.getText());
-//        });
-//        this.add(new Label("House number: "), 1, 7);
-//        this.add(houseNoTextField, 2, 7);
-//
-//        TextField zipCodeTextField = new TextField();
-//        zipCodeTextField.setOnKeyTyped(event -> {
-//            System.out.println(zipCodeTextField.getText());
-//        });
-//        this.add(new Label("Zip code: "), 1, 8);
-//        this.add(zipCodeTextField, 2, 8);
-//
-//        TextField cityTextField = new TextField();
-//        cityTextField.setOnKeyTyped(event -> {
-//            System.out.println(cityTextField.getText());
-//        });
-//        this.add(new Label("City: "), 1, 9);
-//        this.add(cityTextField, 2, 9);
-//
-//        TextField mobileNoTextField = new TextField();
-//        mobileNoTextField.setOnKeyTyped(event -> {
-//            System.out.println(mobileNoTextField.getText());
-//        });
-//        this.add(new Label("Mobile number: "), 1, 10);
-//        this.add(mobileNoTextField, 2, 10);
-//
-//        TextField emailTextField = new TextField();
-//        emailTextField.setOnKeyTyped(event -> {
-//            System.out.println(emailTextField.getText());
-//        });
-//        this.add(new Label("Email: "), 1, 11);
-//        this.add(emailTextField, 2, 11);
+        // Neue Implementierung mit Benutzung einer HashMap.
+        HashMap<PersonEnum, TextField> labelsAndTextFields = new HashMap<>();
 
+        // Erstellung aller Labels und Textfelder mithilfe der Person-Enumeration.
+        int x = 2;
+        for (PersonEnum personProperty : PersonEnum.values()) {
+            Label label = new Label(personProperty.getLabelValue());
+            TextField textField = new TextField();
+            labelsAndTextFields.put(personProperty, textField);
 
-
-
-
-        // Variante ArrayList.
-//        ArrayList<TextField> textFieldsInArrayList = new ArrayList<>();
-//        textFieldsInArrayList.add(new TextField());
-//        textFieldsInArrayList.get(0).setOnKeyTyped(event -> {
-//            System.out.println(textFieldsInArrayList.get(0).getText());
-//        });
-
-
-
-
-
-        // Variante HashMap.
-        HashMap<Label, TextField> textFieldsInHashMap = new HashMap<>();
-        textFieldsInHashMap.put(new Label("Title: "), new TextField());
-        textFieldsInHashMap.put(new Label("First name: "), new TextField());
-        textFieldsInHashMap.put(new Label("Last name: "), new TextField());
-        textFieldsInHashMap.put(new Label("Date of birth: "), new TextField());
-        textFieldsInHashMap.put(new Label("Street: "), new TextField());
-        textFieldsInHashMap.put(new Label("House number: "), new TextField());
-        textFieldsInHashMap.put(new Label("Zip code: "), new TextField());
-        textFieldsInHashMap.put(new Label("City: "), new TextField());
-        textFieldsInHashMap.put(new Label("Mobile number: "), new TextField());
-        textFieldsInHashMap.put(new Label("Email: "), new TextField());
-        int x;
-        x = 2;
-        for (Label label : textFieldsInHashMap.keySet()) {
             this.add(label, 1, x);
-            x++;
-        }
-        x = 2;
-        for (TextField textField : textFieldsInHashMap.values()) {
             this.add(textField, 2, x);
             x++;
 
             textField.setOnKeyTyped(event -> {
-                System.out.println(textField.getText());
+                StringBuilder hqlStringBuilder = new StringBuilder("FROM Person WHERE ");
+
+                int i = labelsAndTextFields.size() - 1;
+                for (PersonEnum personProperty2 : labelsAndTextFields.keySet()) {
+                    hqlStringBuilder.append("(");
+                    hqlStringBuilder.append(personProperty2.getPropertyName());
+                    hqlStringBuilder.append(" LIKE ");
+                    hqlStringBuilder.append("\"");
+                    TextField textField2 = labelsAndTextFields.get(personProperty2);
+                    hqlStringBuilder.append(textField2.getText());
+                    hqlStringBuilder.append("%\"");
+                    hqlStringBuilder.append(" OR ");
+                    hqlStringBuilder.append(personProperty2.getPropertyName());
+                    hqlStringBuilder.append(" = NULL)");
+                    if (i > 0) {
+                        hqlStringBuilder.append(" AND ");
+                    }
+                    i--;
+                }
+
+                String hql = hqlStringBuilder.toString();
+                mainPanel.getCentralPanel().getPersonTable().loadRecords(hql);
             });
         }
     }
